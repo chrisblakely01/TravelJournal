@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TravelJournal</string>
+    <string name="title_trip_detail">Trip Detail</string>
+</resources>
