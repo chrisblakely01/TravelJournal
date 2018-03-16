@@ -1,10 +1,12 @@
 package traveljournal.io.traveljournal
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 
 import kotlinx.android.synthetic.main.activity_main.*
 import traveljournal.io.traveljournal.src.TripsViewAdapter
@@ -23,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         viewManager = LinearLayoutManager(this)
         viewAdapter = TripsViewAdapter(getData())
 
+        /* TODO investigate how to handle clicking of adapter items.
+           would rather now have the adapter have the responsibility
+           of starting new intents/activities
+        */
+
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
@@ -37,11 +44,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            /** Called when the user taps the Send button */
+            //val editText = findViewById<EditText>(R.id.editText)
+            //val message = editText.text.toString()
+            val intent = Intent(this, AddNewTripActivity::class.java).apply {
+                putExtra("123", "this is some extra stuff")
+            }
+            startActivity(intent)
         }
+
+
     }
 
+
+    //TODO replce this with real data sourcex
     private fun getData():List<String>{
 
         return listOf("Switzerland", "Prague", "Lisbon", "Paris")

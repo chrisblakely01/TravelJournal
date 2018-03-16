@@ -32,6 +32,7 @@ class TripsViewAdapter(private val trips: List<String>) :
             itemImage = itemView.findViewById(R.id.trip_photo)
             itemTitle = itemView.findViewById(R.id.trip_title)
             itemDetail = itemView.findViewById(R.id.trip_description)
+            itemView.setOnClickListener{view : View ->  }
         }
     }
 
