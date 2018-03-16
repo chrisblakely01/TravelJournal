@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         viewManager = LinearLayoutManager(this)
         viewAdapter = TripsViewAdapter(getData())
 
-        recyclerView = findViewById<RecyclerView>(R.id.trips_recycler_view).apply {
+        recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
