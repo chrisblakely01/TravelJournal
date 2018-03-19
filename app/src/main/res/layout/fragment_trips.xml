@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="traveljournal.io.traveljournal.src.TripsFragment"
+    tools:context="traveljournal.io.traveljournal.src.fragment.TripsFragment"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
     <android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    />
+        android:id="@+id/trips_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
     <TextView
         android:layout_marginTop="200dp"

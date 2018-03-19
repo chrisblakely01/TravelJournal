@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.design.widget.TabLayout
-import traveljournal.io.traveljournal.src.JournalFragment
-import traveljournal.io.traveljournal.src.TabPagerAdapter
-import traveljournal.io.traveljournal.src.TripsFragment
+import traveljournal.io.traveljournal.src.fragment.JournalFragment
+import traveljournal.io.traveljournal.src.adapter.TabPagerAdapter
+import traveljournal.io.traveljournal.src.fragment.TripsFragment
 
 
 class MainActivity : AppCompatActivity(),

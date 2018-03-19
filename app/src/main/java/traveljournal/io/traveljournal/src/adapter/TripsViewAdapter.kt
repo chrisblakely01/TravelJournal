@@ -1,4 +1,4 @@
-package traveljournal.io.traveljournal.src
+package traveljournal.io.traveljournal.src.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -8,10 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import traveljournal.io.traveljournal.R
 
-class TripsViewAdapter(private val trips: List<String>) :
-        RecyclerView.Adapter<TripsViewAdapter.ViewHolder>() {
+class TripsViewAdapter : RecyclerView.Adapter<TripsViewAdapter.ViewHolder>() {
 
-    private val titles = arrayOf("Trip 1", "Trip 2", "Trip 3");
+    private val titles = arrayOf("My awesome day at the beach ", "Trip 2", "Trip 3");
 
     private val details = arrayOf("Item one details", "Item two details",
             "Item three details")
@@ -40,7 +39,7 @@ class TripsViewAdapter(private val trips: List<String>) :
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.trips_list_cardview, viewGroup, false)
+                .inflate(R.layout.fragment_trips_item_cardview, viewGroup, false)
         return ViewHolder(v)
     }
 
@@ -52,4 +51,6 @@ class TripsViewAdapter(private val trips: List<String>) :
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = titles.size
+
+
 }

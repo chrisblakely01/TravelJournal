@@ -1,4 +1,4 @@
-package traveljournal.io.traveljournal.src
+package traveljournal.io.traveljournal.src.fragment
 
 import android.content.Context
 import android.net.Uri
@@ -11,14 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import traveljournal.io.traveljournal.R
+import traveljournal.io.traveljournal.src.adapter.JournalViewAdapter
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [TripsFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- */
-class TripsFragment : Fragment() {
+
+class JournalFragment : Fragment() {
 
     private var mListener: OnFragmentInteractionListener? = null
     private lateinit var recyclerView: RecyclerView
@@ -28,12 +24,12 @@ class TripsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        var view =  inflater!!.inflate(R.layout.fragment_trips, container, false)
+        var view =  inflater!!.inflate(R.layout.fragment_journal, container, false)
 
         viewManager = LinearLayoutManager(activity)
-        viewAdapter = TripsViewAdapter(getData())
+        viewAdapter = JournalViewAdapter()
 
-        recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view).apply {
+        recyclerView = view.findViewById<RecyclerView>(R.id.journal_recycler_view).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
@@ -48,6 +44,7 @@ class TripsFragment : Fragment() {
         // Inflate the layout for this fragment
         return view
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
@@ -84,10 +81,4 @@ class TripsFragment : Fragment() {
         fun onFragmentInteraction(uri: Uri)
     }
 
-    //TODO replce this with real data sourcex
-    private fun getData():List<String>{
-
-        return listOf("Switzerland", "Prague", "Lisbon", "Paris")
-
-    }
-}// Required empty public constructor
+}
