@@ -1,47 +1,25 @@
 package traveljournal.io.traveljournal
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.View
-
 import kotlinx.android.synthetic.main.activity_main.*
-import traveljournal.io.traveljournal.src.TripsViewAdapter
+import android.support.design.widget.TabLayout
+import traveljournal.io.traveljournal.src.JournalFragment
+import traveljournal.io.traveljournal.src.TabPagerAdapter
+import traveljournal.io.traveljournal.src.TripsFragment
 
-class MainActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
+class MainActivity : AppCompatActivity(),
+        TripsFragment.OnFragmentInteractionListener,
+        JournalFragment.OnFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-        viewManager = LinearLayoutManager(this)
-        viewAdapter = TripsViewAdapter(getData())
-
-        /* TODO investigate how to handle clicking of adapter items.
-           would rather now have the adapter have the responsibility
-           of starting new intents/activities
-        */
-
-        recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
-
-            // use a linear layout manager
-            layoutManager = viewManager
-
-            // specify an viewAdapter (see also next example)
-            adapter = viewAdapter
-
-        }
+        configureTabLayout()
 
         fab.setOnClickListener { view ->
             /** Called when the user taps the Send button */
@@ -53,15 +31,45 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
     }
 
 
-    //TODO replce this with real data sourcex
-    private fun getData():List<String>{
+    //tab_layout & pager automatically map to the ids of the components
+    private fun configureTabLayout() {
 
-        return listOf("Switzerland", "Prague", "Lisbon", "Paris")
+        //get tab layout by id, add new tab
+        tab_layout.addTab(tab_layout.newTab().setText("Journal"))
+        tab_layout.addTab(tab_layout.newTab().setText("Trips"))
 
+        //pass to adapter
+        //TODO order tabs are initialised here need to match the ordering of getItem in adapter
+        val adapter = TabPagerAdapter(supportFragmentManager,
+                tab_layout.tabCount)
+
+        pager.adapter = adapter
+
+        pager.addOnPageChangeListener(
+                TabLayout.TabLayoutOnPageChangeListener(tab_layout))
+
+        tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                pager.currentItem = tab.position
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab) {
+
+            }
+
+        })
+    }
+
+    override fun onFragmentInteraction(uri: Uri) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }

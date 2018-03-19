@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">TravelJournal</string>
+    <string name="app_name">Travel Journal</string>
     <string name="title_trip_detail">Trip Detail</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Travel Journal</string>
     <string name="title_activity_add_new_trip">AddNewTripActivity</string>
+
+    <!-- Tab Fragments -->
+    <string name="trips_fragment_placeholder">This is the trips tab</string>
+    <string name="journal_fragment_placeholder">This is the journals tab</string>
+
 </resources>
