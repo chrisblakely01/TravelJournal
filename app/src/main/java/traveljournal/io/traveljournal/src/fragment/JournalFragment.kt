@@ -1,8 +1,6 @@
 package traveljournal.io.traveljournal.src.fragment
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -11,13 +9,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import traveljournal.io.traveljournal.AddNewTripActivity
 
 import traveljournal.io.traveljournal.R
-import traveljournal.io.traveljournal.ViewJournalEntryDetailActivity
 import traveljournal.io.traveljournal.src.adapter.JournalViewAdapter
-
-
 
 class JournalFragment : Fragment() {
 
@@ -26,15 +20,6 @@ class JournalFragment : Fragment() {
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//
-//        val intent = Intent(activity, ViewJournalEntryDetailActivity::class.java).apply {
-//            putExtra("123", "this is some extra stuff")
-//        }
-
-    }
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -56,22 +41,8 @@ class JournalFragment : Fragment() {
 
         }
 
-
         // Inflate the layout for this fragment
         return view
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    // Do I need this?
-//    fun onButtonPressed(uri: Uri) {
-//        if (mListener != null) {
-//            mListener!!.onJournalEntrySelected(uri)
-//        }
-//    }
-
-    // TODO: accept JournalEntryModel
-    fun onJournalEntryClicked(int : Int) {
-        mListener?.onJournalEntrySelected(int)
     }
 
     override fun onResume() {

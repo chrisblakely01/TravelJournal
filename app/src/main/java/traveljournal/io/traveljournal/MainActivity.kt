@@ -24,9 +24,6 @@ class MainActivity : AppCompatActivity(),
         configureTabLayout()
 
         fab.setOnClickListener { view ->
-            /** Called when the user taps the Send button */
-            //val editText = findViewById<EditText>(R.id.editText)
-            //val message = editText.text.toString()
             val intent = Intent(this, AddNewTripActivity::class.java).apply {
                 putExtra("123", "this is some extra stuff")
             }
@@ -72,22 +69,10 @@ class MainActivity : AppCompatActivity(),
 
     override fun onJournalEntrySelected(int: Int) {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        Log.d("JOURNAL VIEW CLICKED", "Clicked item with URI: " + int)
-
-
-
-
-//        val intent = Intent(this, ViewJournalEntryDetailActivity::class.java).apply {
-//            putExtra("123", "this is some extra stuff")
-//        }
-//        startActivity(intent)
     }
 
     override fun onTripSelected(uri: Uri) {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-        Log.d("TRIP VIEW CLICKED", "Clicked item with URI: " + uri)
     }
 
 }
