@@ -6,14 +6,16 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.design.widget.TabLayout
+import android.util.Log
 import traveljournal.io.traveljournal.src.fragment.JournalFragment
 import traveljournal.io.traveljournal.src.adapter.TabPagerAdapter
 import traveljournal.io.traveljournal.src.fragment.TripsFragment
 
 
 class MainActivity : AppCompatActivity(),
-        TripsFragment.OnFragmentInteractionListener,
-        JournalFragment.OnFragmentInteractionListener {
+        TripsFragment.OnTripSelectedListener,
+        JournalFragment.OnJournalEntrySelectedListener {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,8 +70,24 @@ class MainActivity : AppCompatActivity(),
         })
     }
 
-    override fun onFragmentInteraction(uri: Uri) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onJournalEntrySelected(int: Int) {
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        Log.d("JOURNAL VIEW CLICKED", "Clicked item with URI: " + int)
+
+
+
+
+//        val intent = Intent(this, ViewJournalEntryDetailActivity::class.java).apply {
+//            putExtra("123", "this is some extra stuff")
+//        }
+//        startActivity(intent)
+    }
+
+    override fun onTripSelected(uri: Uri) {
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        Log.d("TRIP VIEW CLICKED", "Clicked item with URI: " + uri)
     }
 
 }

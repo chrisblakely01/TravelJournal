@@ -15,7 +15,7 @@ import traveljournal.io.traveljournal.src.adapter.TripsViewAdapter
 
 class TripsFragment : Fragment() {
 
-    private var mListener: OnFragmentInteractionListener? = null
+    private var mListener: OnTripSelectedListener? = null
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
@@ -28,6 +28,7 @@ class TripsFragment : Fragment() {
         viewManager = LinearLayoutManager(activity)
         viewAdapter = TripsViewAdapter()
 
+        //APPLY ... assign and initialise value in one step
         recyclerView = view.findViewById<RecyclerView>(R.id.trips_recycler_view).apply {
             // use this setting to improve performance if you know that changes
             // in content do not change the layout size of the RecyclerView
@@ -40,6 +41,7 @@ class TripsFragment : Fragment() {
             adapter = viewAdapter
 
         }
+
         // Inflate the layout for this fragment
         return view
     }
@@ -47,16 +49,16 @@ class TripsFragment : Fragment() {
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         if (mListener != null) {
-            mListener!!.onFragmentInteraction(uri)
+            mListener!!.onTripSelected(uri)
         }
     }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        if (context is OnTripSelectedListener) {
             mListener = context
         } else {
-            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context!!.toString() + " must implement OnJournalEntrySelectedListener")
         }
     }
 
@@ -74,8 +76,8 @@ class TripsFragment : Fragment() {
      *
      * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
      */
-    interface OnFragmentInteractionListener {
+    interface OnTripSelectedListener {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+        fun onTripSelected(uri: Uri)
     }
 }

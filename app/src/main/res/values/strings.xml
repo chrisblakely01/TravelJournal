@@ -7,5 +7,6 @@
     <!-- Tab Fragments -->
     <string name="trips_fragment_placeholder">This is the trips tab</string>
     <string name="journal_fragment_placeholder">This is the journals tab</string>
+    <string name="title_activity_view_journal_entry_detail">ViewJournalEntryDetailActivity</string>
 
 </resources>

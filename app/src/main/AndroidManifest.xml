@@ -22,6 +22,10 @@
         <activity
             android:name=".AddNewTripActivity"
             android:label="@string/title_activity_add_new_trip"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewJournalEntryDetailActivity"
+            android:label="@string/title_activity_view_journal_entry_detail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
